@@ -1,0 +1,36 @@
+/*声明网页基础样式*/
+*{margin: 0px;padding: 0px;}
+/*网页标题部分样式*/
+	#header{width: 100%;height: 45px;}
+		/*设置导航栏样式*/
+		#header_nav{position: absolute;right: 94px;top:26px;}
+		#header_nav li{float: left;list-style-type: none;margin-left: 24px;}
+		/*设置超链接样式*/
+		#header_nav li a{color: black;font-weight: 700;color:#333;font-size: 13px; line-height: 24px;}
+/*网页主体部分样式*/
+	#main{width: 100%;height: 379px;background-color: white;text-align: center;border-top: solid 1px white;}
+	/*设置图片的样式*/
+		#main_logo{margin-top: 60px;margin-bottom: 18px;}
+		input[type=text]{
+			width: 537px;
+			height: 36px;
+			border: solid 0.5px #4791FF;
+			background-image: url(../img/inp.png);
+			background-repeat: no-repeat;
+			background-position-x: 500px;
+			background-position-y: 5px;
+		}
+		input[type=submit]{
+			height: 36px;
+			width: 103px;
+			border: solid 1px #2d78f4;
+			background-color: #2d78f4;
+			font-size: 15px;
+			letter-spacing: 1px;
+			color: #fff;
+			position: relative;
+			right: 5px;
+			top:1px;
+		}
+/*网页声明部分样式*/
+	#footer{width: 100%;height: 210px;text-align: center;}	
