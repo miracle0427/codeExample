@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>js文字图片轮播</title>
+<meta charset="UTF-8"/>
+<style type="text/css">
+<!--
+*
+{
+    margin:0;
+    padding:0;
+    font-size:12px;
+}
+ 
+ul,li
+{
+    list-style:none;
+}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{zoom:1;}
+#dd { width:303px; height:80px; margin:50px auto 0 auto; border:1px solid #ccc; border-right:none; overflow:hidden;}
+#dd li { float:left; width:50px; height:80px; overflow:hidden;border-right:1px solid #ccc;}
+#dd li span { width:50px; display:inline-block;  text-align:center; line-height:80px;}
+#dd li  p { width:150px; display:inline-block;}
+#dd li.on { width:200px;}
+#ii { width:303px;  margin:5px auto 0 auto;}
+#ii li { float:left; width:10px; height:10px; margin:0 1px; background:#ccc; text-align:center; line-height:10px; cursor:pointer;}
+#ii li.on{ background:#6CF;}
+-->
+</style>
+</head>
+ 
+<body>
+ 
+<ul id="dd" class="clearfix">
+ 
+    <li><span>表一</span><p>户籍管理松动<br />权益捆绑依旧</p></li>
+    <li><span>表二</span><p>户籍管理松动<br />权益捆绑依旧</p></li>
+    <li><span>表三</span><p>户籍管理松动<br />权益捆绑依旧</p></li>
+ 
+</ul>
+ 
+<ul id="ii" class="clearfix">
+     
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+ 
+</ul>
+ 
+<script type="text/javascript">
+<!--
+function newSlider()
+{
+    var dl=document.getElementById("dd").getElementsByTagName("li");//得到数组赋值给变量
+    // 如果这里输入alert(dl)将会提示Object: HTMLCollection
+    // 关于Object: HTMLCollection解释
+    // The HTMLCollection object is an array that contains an ordered collection of nodes. 
+    // 对象时一个包含有序节点集的数组
+    // 英文解释摘自BlackBerry Browser开发人员说明手册
+    var il=document.getElementById("ii").getElementsByTagName("li");
+    var dlen = dl.length;
+    var timer = null,index = 0,autoTime = 3000;
+    //timer定时器，index当前显示的是第几个，autotime自动切换时间
+     
+    dl[0].className="on",il[0].className="on";// 改变类名，变换CSS格式
+    //切换函数
+     
+    function play(j)
+    {
+        index = j;
+        stopAuto();//停止计时
+        for (var i=0;i<dlen ;i++ )
+        {
+            dl[i].className="";
+            il[i].className="";
+        }
+        dl[j].className="on";
+        il[j].className="on";
+        startAuto();//重新开始计时
+    }
+    //mouseover表切换
+    for ( var i=0;i<dlen ;i++ )
+    {
+        dl[i].onmouseover=function(j)
+        {
+            return function(){play(j);}
+        }(i)
+    }
+    //click按钮切换
+    for ( var i=0;i<dlen ;i++ )
+    {
+        il[i].onclick=function(j)
+        {
+            return function(){play(j);}
+        }(i)
+    }
+    // 为鼠标点击和离开添加函数
+    // 自动切换开始
+    function startAuto()
+    {
+        timer = setInterval
+        (
+            function()
+            {
+                index++;
+                index = index>dlen-1?0:index;
+                play(index);
+            },autoTime
+        );
+    }
+    //自动切换停止
+    function stopAuto()
+    {
+        clearInterval(timer);
+    }
+    //启动自动切换
+    startAuto()
+}
+// setInterval()与clearInterval()特效代码中极其常见的两个函数，参考W3C，不多介绍
+window.onload=function(){newSlider();}
+//-->
+</script>
+</body>
+</html>

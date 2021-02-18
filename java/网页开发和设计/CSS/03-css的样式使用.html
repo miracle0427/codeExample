@@ -1,0 +1,85 @@
+<html>
+	<head>
+		<title>css的样式使用</title>
+		<meta charset="UTF-8"/>
+		<!--声明css代码域-->
+		<style type="text/css">
+			/*添加网页背景图*/
+			body{
+				background-image: url(img/a1.jpg);/*添加背景图片*/
+				background-repeat: no-repeat;/*设置图片不重复*/
+				background-size: cover;/*设置图片平铺*/
+				
+			}
+			/*使用标签选择器*/
+			table{
+				
+			}
+			/*设置table的行高*/
+			tr{
+				height: 40px;
+				
+			}
+			/*设置td*/
+			td{
+				width: 100px;/*设置宽*/
+				border: solid 1px red;/*添加边框及其颜色和大小*/
+				border-radius: 10px;/*设置表框的角度*/
+				background-color: orange;		/*设置背景颜色*/
+				text-align: center;/*设置文本位置*/
+				color: blueviolet;/*设置文本颜色*/
+				font-weight: bold;/*设置文本加粗*/
+				letter-spacing: 10px;/*设置字体间距*/
+			}
+/*--------------------------------------------------------------------------------*/
+			ul{
+				background-color: gray;
+				height: 50px;
+				
+				
+			}
+			li{
+				list-style-type:none;/*去除li的标识符*/
+				/*display: inline;*/
+				float: left;/*设置菜单左悬浮*/
+			}
+			li a{
+				color: black;
+				text-decoration: none;/*设置超链接去除下划线*/
+				font-weight: bold;
+				font-size: 20px;
+				margin-left: 20px;
+				position: relative;
+				top:10px;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>css的样式使用</h3>
+		<hr />
+		<table>
+			<tr>
+				<td>姓名</td>
+				<td>性别</td>
+				<td>爱好</td>
+			</tr>
+			<tr>
+				<td>张三</td>
+				<td>男</td>
+				<td>唱歌</td>
+			</tr>
+			<tr>
+				<td>李四</td>
+				<td>男</td>
+				<td>跳舞</td>
+			</tr>
+		</table>
+		<hr />
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a href="">百战</a></li>
+			<li><a href="">java风情</a></li>
+			<li><a href="">客服</a></li>
+		</ul>
+	</body>
+</html>
