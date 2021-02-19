@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjsxt.mapper.LogMapper">
+	<!-- <select id="selByAccinAccout" resultType="log">
+		select * from log where 1=1
+		OGNL表达式,直接写key或对象的属性.不需要添加任何特字符号
+		<if test="accin!=null and accin!=''">
+			and accin=#{accin}
+		</if>
+		<if test="accout!=null and accout!=''">
+			and accout=#{accout}
+		</if>
+	</select> -->
+	
+	<!-- <select id="selByAccinAccout" resultType="log">
+		select * from log 
+		<where>
+			<if test="accin!=null and accin!=''">
+				and accin=#{accin}
+			</if>
+			<if test="accout!=null and accout!=''">
+				and accout=#{accout}
+			</if>
+		</where>
+	</select> -->
+	
+	<select id="selByAccinAccout" resultType="log">
+		select * from log 
+		<where>
+			<choose>
+				<when test="accin!=null and accin!=''">
+					and accin=#{accin}
+				</when>
+				<when test="accout!=null and accout!=''">
+					and accout=#{accout}
+				</when>
+			</choose>
+		</where>
+	</select>
+	
+<!-- 	<update id="upd" parameterType="log" >
+		update log 
+		<set>
+			id=#{id},
+			<if test="accIn!=null and accIn!=''">
+				accin=#{accIn},
+			</if>
+			<if test="accOut!=null and accOut!=''">
+				accout=#{accOut},
+			</if>
+		</set>
+		where id=#{id}
+	</update> -->
+	
+	<update id="upd" parameterType="log">
+		update log
+		<trim prefix="set" suffixOverrides=",">
+		a=a,
+		</trim>
+		where id=100
+	</update>
+	
+	<!-- <select id="selByLog" parameterType="log" resultType="log">
+		select * from log
+		<trim prefix="abc" prefixOverrides="abc">abc</trim>
+	</select> -->
+	
+	
+	<select id="selByLog" parameterType="log" resultType="log">
+		<bind name="accin" value="'%'+accin+'%'"/>
+		#{money}
+	</select>
+	
+	<select id="selIn" parameterType="list" resultType="log">
+		select * from log where id in
+		<foreach collection="list" item="abc" open="(" close=")" separator=",">
+			#{abc}
+		</foreach>
+	</select>
+	
+	<insert id="ins" parameterType="list">
+		insert into log values
+		<trim suffixOverrides=",">
+			<foreach collection="list" item="log">
+				(default,#{log},2,2),
+			</foreach>
+		</trim>
+	</insert>
+	
+	
+	<select id="">
+		 select <include refid="mysql"></include>
+		 from log
+	</select>
+	
+	<sql id="mysql">
+		id,accin,accout,money
+	</sql>
+		
+</mapper>

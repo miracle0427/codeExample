@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjsxt.mapper.StudentMapper">
+
+	<resultMap type="student" id="stuMap">
+		<result column="tid" property="tid"/>
+		<!-- 如果关联一个对象 -->
+		<association property="teacher" select="com.bjsxt.mapper.TeacherMapper.selById" column="tid"></association>
+	</resultMap>
+	<select id="selAll" resultMap="stuMap">
+		select * from student
+	</select>
+	
+	<resultMap type="Student" id="stuMap1">
+		<id column="sid" property="id"/>
+		<result column="sname" property="name"/>
+		<result column="age" property="age"/>
+		<result column="tid" property="tid"/>
+		<association property="teacher" javaType="Teacher" >
+			<id column="tid" property="id"/>
+			<result column="tname" property="name"/>
+		</association>
+	</resultMap>
+	<select id="selAll1" resultMap="stuMap1">
+		select s.id sid,s.name sname,age age,t.id tid,t.name tname FROM student s left outer join teacher t on s.tid=t.id
+	</select>
+</mapper>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjsxt.mapper.TeacherMapper">
+	<select id="selAll" resultType="teacher">
+		select t.id id,t.name name,s.id `list.id`,s.name `list.name`,age `list.age`,tid `list.tid` from teacher t LEFT JOIN student s on t.id=s.tid
+	</select>
+</mapper>
