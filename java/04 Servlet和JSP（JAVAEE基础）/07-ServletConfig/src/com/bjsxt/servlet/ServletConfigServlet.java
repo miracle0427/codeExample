@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 /**
- * ServletConfig¶ÔÏóÑ§Ï°£º
- * 		ÎÊÌâ£º
- * 			ÈçºÎ»ñÈ¡ÔÚweb.xmlÖĞ¸øÃ¿¸öservletµ¥¶ÀÅäÖÃµÄÊı¾İÄØ£¿
- * 		½â¾ö£º
- * 			Ê¹ÓÃServletConfig¶ÔÏó
- * 		Ê¹ÓÃ£º
- * 			»ñÈ¡ServletConfig¶ÔÏó
- * 			»ñÈ¡web.xmlÖĞµÄÅäÖÃÊı¾İ
+ * ServletConfigå¯¹è±¡å­¦ä¹ ï¼š
+ * 		é—®é¢˜ï¼š
+ * 			å¦‚ä½•è·å–åœ¨web.xmlä¸­ç»™æ¯ä¸ªservletå•ç‹¬é…ç½®çš„æ•°æ®å‘¢ï¼Ÿ
+ * 		è§£å†³ï¼š
+ * 			ä½¿ç”¨ServletConfigå¯¹è±¡
+ * 		ä½¿ç”¨ï¼š
+ * 			è·å–ServletConfigå¯¹è±¡
+ * 			è·å–web.xmlä¸­çš„é…ç½®æ•°æ®
  * @author MyPC
  *
  */
@@ -23,9 +23,9 @@ public class ServletConfigServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		//»ñÈ¡ServletConfig¶ÔÏó
+		//è·å–ServletConfigå¯¹è±¡
 		ServletConfig sc=this.getServletConfig();
-		//»ñÈ¡web.xmlÖĞµÄÅäÖÃÊı¾İ
+		//è·å–web.xmlä¸­çš„é…ç½®æ•°æ®
 		String code=sc.getInitParameter("config");
 		System.out.println(code);
 	}

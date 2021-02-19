@@ -7,35 +7,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 /**
- * Service·½·¨ºÍdoGet·½·¨ºÍdoPost·½·¨µÄÇø±ğ
- * 	Service·½·¨£º
- * 		¿ÉÒÔ´¦Àíget/post·½Ê½µÄÇëÇó£¬Èç¹ûservletÖĞÓĞService·½·¨£¬»áÓÅÏÈµ÷ÓÃservice·½·¨¶ÔÇëÇó½øĞĞ´¦Àí¡£
- * 	doGet·½·¨£º
- * 		´¦Àíget·½Ê½µÄÇëÇó
- * 	doPost·½·¨£º
- * 		´¦Àípost·½Ê½µÄÇëÇó
- * ×¢Òâ£º
- * 		Èç¹ûÔÚ¸²Ğ´µÄservice·½·¨ÖĞµ÷ÓÃÁË¸¸ÀàµÄservice·½·¨(super.service(arg0, arg1)),
- * 		Ôòservice·½·¨´¦ÀíÍêºó£¬»áÔÙ´Î¸ù¾İÇëÇó·½Ê½ÏìÓ¦µÄdoGetºÍdoPost·½·¨Ö´ĞĞ¡£ËùÒÔ£¬Ò»°ãÇé¿öÏÂ
- * 		ÎÒÃÇÊÇ²»ÔÚ¸²Ğ´µÄserviceÖĞµ÷ÓÃ¸¸ÀàµÄservice·½·¨µÄ£¬±ÜÃâ³öÏÖ405´íÎó¡£
- * ServletµÄ³£¼û´íÎó£º
- * 		404´íÎó:×ÊÔ´Î´ÕÒµ½
- * 			Ô­ÒòÒ»£ºÔÚÇëÇóµØÖ·ÖĞµÄservletµÄ±ğÃûÊéĞ´´íÎó¡£
- * 			Ô­Òò¶ş£ºĞéÄâÏîÄ¿Ãû³ÆÆ´Ğ´´íÎó
- *		500´íÎó£ºÄÚ²¿·şÎñÆ÷´íÎó
- *			´íÎóÒ»£º
+ * Serviceæ–¹æ³•å’ŒdoGetæ–¹æ³•å’ŒdoPostæ–¹æ³•çš„åŒºåˆ«
+ * 	Serviceæ–¹æ³•ï¼š
+ * 		å¯ä»¥å¤„ç†get/postæ–¹å¼çš„è¯·æ±‚ï¼Œå¦‚æœservletä¸­æœ‰Serviceæ–¹æ³•ï¼Œä¼šä¼˜å…ˆè°ƒç”¨serviceæ–¹æ³•å¯¹è¯·æ±‚è¿›è¡Œå¤„ç†ã€‚
+ * 	doGetæ–¹æ³•ï¼š
+ * 		å¤„ç†getæ–¹å¼çš„è¯·æ±‚
+ * 	doPostæ–¹æ³•ï¼š
+ * 		å¤„ç†postæ–¹å¼çš„è¯·æ±‚
+ * æ³¨æ„ï¼š
+ * 		å¦‚æœåœ¨è¦†å†™çš„serviceæ–¹æ³•ä¸­è°ƒç”¨äº†çˆ¶ç±»çš„serviceæ–¹æ³•(super.service(arg0, arg1)),
+ * 		åˆ™serviceæ–¹æ³•å¤„ç†å®Œåï¼Œä¼šå†æ¬¡æ ¹æ®è¯·æ±‚æ–¹å¼å“åº”çš„doGetå’ŒdoPostæ–¹æ³•æ‰§è¡Œã€‚æ‰€ä»¥ï¼Œä¸€èˆ¬æƒ…å†µä¸‹
+ * 		æˆ‘ä»¬æ˜¯ä¸åœ¨è¦†å†™çš„serviceä¸­è°ƒç”¨çˆ¶ç±»çš„serviceæ–¹æ³•çš„ï¼Œé¿å…å‡ºç°405é”™è¯¯ã€‚
+ * Servletçš„å¸¸è§é”™è¯¯ï¼š
+ * 		404é”™è¯¯:èµ„æºæœªæ‰¾åˆ°
+ * 			åŸå› ä¸€ï¼šåœ¨è¯·æ±‚åœ°å€ä¸­çš„servletçš„åˆ«åä¹¦å†™é”™è¯¯ã€‚
+ * 			åŸå› äºŒï¼šè™šæ‹Ÿé¡¹ç›®åç§°æ‹¼å†™é”™è¯¯
+ *		500é”™è¯¯ï¼šå†…éƒ¨æœåŠ¡å™¨é”™è¯¯
+ *			é”™è¯¯ä¸€ï¼š
  *				java.lang.ClassNotFoundException: com.bjsxt.servlet.ServletMothod
- * 				½â¾ö£º
- * 					ÔÚweb.xmlÖĞĞ£ÑéservletÀàµÄÈ«ÏŞ¶¨Â·¾¶ÊÇ·ñÆ´Ğ´´íÎó¡£
- *			´íÎó¶ş£º
- *				ÒòÎªservice·½·¨ÌåµÄ´úÂëÖ´ĞĞ´íÎóµ¼ÖÂ
- *				½â¾ö£º
- *					¸ù¾İ´íÎóÌáÊ¾¶Ôservice·½·¨ÌåÖĞµÄ´úÂë½øĞĞ´íÎó¸ü¸Ä¡£
- *		405´íÎó:ÇëÇó·½Ê½²»Ö§³Ö
- *			Ô­Òò£º
- *				ÇëÇó·½Ê½ºÍservletÖĞµÄ·½·¨²»Æ¥ÅäËùÔì³ÉµÄ¡£
- *			½â¾ö£º
- *				¾¡Á¿Ê¹ÓÃservice·½·¨½øĞĞÇëÇó´¦Àí£¬²¢ÇÒ²»ÒªÔÙservice·½·¨ÖĞµ÷ÓÃ¸¸ÀàµÄservice¡£
+ * 				è§£å†³ï¼š
+ * 					åœ¨web.xmlä¸­æ ¡éªŒservletç±»çš„å…¨é™å®šè·¯å¾„æ˜¯å¦æ‹¼å†™é”™è¯¯ã€‚
+ *			é”™è¯¯äºŒï¼š
+ *				å› ä¸ºserviceæ–¹æ³•ä½“çš„ä»£ç æ‰§è¡Œé”™è¯¯å¯¼è‡´
+ *				è§£å†³ï¼š
+ *					æ ¹æ®é”™è¯¯æç¤ºå¯¹serviceæ–¹æ³•ä½“ä¸­çš„ä»£ç è¿›è¡Œé”™è¯¯æ›´æ”¹ã€‚
+ *		405é”™è¯¯:è¯·æ±‚æ–¹å¼ä¸æ”¯æŒ
+ *			åŸå› ï¼š
+ *				è¯·æ±‚æ–¹å¼å’Œservletä¸­çš„æ–¹æ³•ä¸åŒ¹é…æ‰€é€ æˆçš„ã€‚
+ *			è§£å†³ï¼š
+ *				å°½é‡ä½¿ç”¨serviceæ–¹æ³•è¿›è¡Œè¯·æ±‚å¤„ç†ï¼Œå¹¶ä¸”ä¸è¦å†serviceæ–¹æ³•ä¸­è°ƒç”¨çˆ¶ç±»çš„serviceã€‚
  * @author MyPC
  */
 public class ServletMethod extends HttpServlet {
@@ -44,18 +44,18 @@ public class ServletMethod extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		int i=5/0;
-		System.out.println("ÎÒÊÇservice");
+		System.out.println("æˆ‘æ˜¯service");
 		super.service(req, resp);
 		
 	}
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		System.out.println("ÎÒÊÇdoGet·½·¨");
+		System.out.println("æˆ‘æ˜¯doGetæ–¹æ³•");
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		System.out.println("ÎÒÊÇdoPost·½·¨");
+		System.out.println("æˆ‘æ˜¯doPostæ–¹æ³•");
 	}	
 }

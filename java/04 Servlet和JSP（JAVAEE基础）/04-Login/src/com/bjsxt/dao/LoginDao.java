@@ -3,8 +3,8 @@ package com.bjsxt.dao;
 import com.bjsxt.pojo.User;
 
 public interface LoginDao {
-	//根据用户名和密码获取用户信息
+	//鏍规嵁鐢ㄦ埛鍚嶅拰瀵嗙爜鑾峰彇鐢ㄦ埛淇℃伅
 	User checkLoginDao(String uname,String pwd);
-	//根据uid获取用户信息
+	//鏍规嵁uid鑾峰彇鐢ㄦ埛淇℃伅
 	User checkUidDao(String uid);
 }

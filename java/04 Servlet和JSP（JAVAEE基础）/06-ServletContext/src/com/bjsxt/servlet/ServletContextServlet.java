@@ -9,52 +9,52 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 /**
- * ServletContext¶ÔÏóÑ§Ï°£º
- * 		ÎÊÌâ:
- * 			²»Í¬µÄÓÃ»§Ê¹ÓÃÏàÍ¬µÄÊı¾İ
- * 		½â¾ö:
- * 			ServletContext¶ÔÏó
- * 		ÌØµã:
- * 			·şÎñÆ÷´´½¨
- * 			ÓÃ»§¹²Ïí
- * 		×÷ÓÃÓò£º
- * 			Õû¸öÏîÄ¿ÄÚ
- * 		ÉúÃüÖÜÆÚ£º
- * 			·şÎñÆ÷Æô¶¯µ½·şÎñÆ÷¹Ø±Õ
- * 		Ê¹ÓÃ£º
- * 			»ñÈ¡ServletContext¶ÔÏó
- * 					//µÚÒ»ÖÖ·½Ê½£º
+ * ServletContextå¯¹è±¡å­¦ä¹ ï¼š
+ * 		é—®é¢˜:
+ * 			ä¸åŒçš„ç”¨æˆ·ä½¿ç”¨ç›¸åŒçš„æ•°æ®
+ * 		è§£å†³:
+ * 			ServletContextå¯¹è±¡
+ * 		ç‰¹ç‚¹:
+ * 			æœåŠ¡å™¨åˆ›å»º
+ * 			ç”¨æˆ·å…±äº«
+ * 		ä½œç”¨åŸŸï¼š
+ * 			æ•´ä¸ªé¡¹ç›®å†…
+ * 		ç”Ÿå‘½å‘¨æœŸï¼š
+ * 			æœåŠ¡å™¨å¯åŠ¨åˆ°æœåŠ¡å™¨å…³é—­
+ * 		ä½¿ç”¨ï¼š
+ * 			è·å–ServletContextå¯¹è±¡
+ * 					//ç¬¬ä¸€ç§æ–¹å¼ï¼š
 						ServletContext sc=this.getServletContext();
-					//µÚ¶şÖÖ·½Ê½£º
+					//ç¬¬äºŒç§æ–¹å¼ï¼š
 						ServletContext sc2=this.getServletConfig().getServletContext();
-					//µÚÈıÖÖ·½Ê½£º
+					//ç¬¬ä¸‰ç§æ–¹å¼ï¼š
 						ServletContext sc3=req.getSession().getServletContext();
- * 			Ê¹ÓÃServletContext¶ÔÏóÍê³ÉÊı¾İ¹²Ïí
- * 					//Êı¾İ´æ´¢
+ * 			ä½¿ç”¨ServletContextå¯¹è±¡å®Œæˆæ•°æ®å…±äº«
+ * 					//æ•°æ®å­˜å‚¨
  * 						sc.setAttribute(String name, Object value);
- * 					//Êı¾İ»ñÈ¡
- * 						sc.getAttribute("str") ·µ»ØµÄÊÇObjectÀàĞÍ
- * 					×¢Òâ£º
- * 						²»Í¬µÄÓÃ»§¿ÉÒÔ¸øServletContext¶ÔÏó½øĞĞÊı¾İµÄ´æÈ¡¡£
- * 						»ñÈ¡µÄÊı¾İ²»´æÔÚ·µ»Ønull¡£
- * 			»ñÈ¡ÏîÄ¿ÖĞweb.xmlÎÄ¼şÖĞµÄÈ«¾ÖÅäÖÃÊı¾İ
- * 					sc.getInitParameter(String name); ¸ù¾İ¼üµÄÃû×Ö·µ»Øweb.xmlÖĞÅäÖÃµÄÈ«¾ÖÊı¾İµÄÖµ£¬·µ»ØStringÀàĞÍ¡£
- * 													  Èç¹ûÊı¾İ²»´æÔÚ·µ»Ønull¡£
- * 					sc.getInitParameterNames();·µ»Ø¼üÃûµÄÃ¶¾Ù
- * 				ÅäÖÃ·½Ê½£º×¢Òâ Ò»×é<context-param>±êÇ©Ö»ÄÜ´æ´¢Ò»×é¼üÖµ¶ÔÊı¾İ£¬¶à×é¿ÉÒÔÉùÃ÷¶à¸ö  <context-param>½øĞĞ´æ´¢¡£
+ * 					//æ•°æ®è·å–
+ * 						sc.getAttribute("str") è¿”å›çš„æ˜¯Objectç±»å‹
+ * 					æ³¨æ„ï¼š
+ * 						ä¸åŒçš„ç”¨æˆ·å¯ä»¥ç»™ServletContextå¯¹è±¡è¿›è¡Œæ•°æ®çš„å­˜å–ã€‚
+ * 						è·å–çš„æ•°æ®ä¸å­˜åœ¨è¿”å›nullã€‚
+ * 			è·å–é¡¹ç›®ä¸­web.xmlæ–‡ä»¶ä¸­çš„å…¨å±€é…ç½®æ•°æ®
+ * 					sc.getInitParameter(String name); æ ¹æ®é”®çš„åå­—è¿”å›web.xmlä¸­é…ç½®çš„å…¨å±€æ•°æ®çš„å€¼ï¼Œè¿”å›Stringç±»å‹ã€‚
+ * 													  å¦‚æœæ•°æ®ä¸å­˜åœ¨è¿”å›nullã€‚
+ * 					sc.getInitParameterNames();è¿”å›é”®åçš„æšä¸¾
+ * 				é…ç½®æ–¹å¼ï¼šæ³¨æ„ ä¸€ç»„<context-param>æ ‡ç­¾åªèƒ½å­˜å‚¨ä¸€ç»„é”®å€¼å¯¹æ•°æ®ï¼Œå¤šç»„å¯ä»¥å£°æ˜å¤šä¸ª  <context-param>è¿›è¡Œå­˜å‚¨ã€‚
  * 					  <context-param>
 						  	<param-name>name</param-name>
 						  	<param-value>zhangsan</param-value>
   					  </context-param>
-  				×÷ÓÃ£º½«¾²Ì¬Êı¾İºÍ´úÂë½øĞĞ½âñî¡£
-  			»ñÈ¡ÏîÄ¿webrootÏÂµÄ×ÊÔ´µÄ¾ø¶ÔÂ·¾¶¡£
+  				ä½œç”¨ï¼šå°†é™æ€æ•°æ®å’Œä»£ç è¿›è¡Œè§£è€¦ã€‚
+  			è·å–é¡¹ç›®webrootä¸‹çš„èµ„æºçš„ç»å¯¹è·¯å¾„ã€‚
   				String path=sc.getRealPath(String path);	
-  				»ñÈ¡µÄÂ·¾¶ÎªÏîÄ¿¸ùÄ¿Â¼£¬path²ÎÊıÎªÏîÄ¿¸ùÄ¿Â¼ÖĞµÄÂ·¾¶
-  			»ñÈ¡webrootÏÂµÄ×ÊÔ´µÄÁ÷¶ÔÏó
+  				è·å–çš„è·¯å¾„ä¸ºé¡¹ç›®æ ¹ç›®å½•ï¼Œpathå‚æ•°ä¸ºé¡¹ç›®æ ¹ç›®å½•ä¸­çš„è·¯å¾„
+  			è·å–webrootä¸‹çš„èµ„æºçš„æµå¯¹è±¡
   				InputStream is = sc.getResourceAsStream(String path);
-  				×¢Òâ£º
-  					´ËÖÖ·½Ê½Ö»ÄÜ»ñÈ¡ÏîÄ¿¸ùÄ¿Â¼ÏÂµÄ×ÊÔ´Á÷¶ÔÏó£¬classÎÄ¼şµÄÁ÷¶ÔÏóĞèÒªÊ¹ÓÃÀà¼ÓÔØÆ÷»ñÈ¡¡£
-  					path²ÎÊıÎªÏîÄ¿¸ùÄ¿Â¼ÖĞµÄÂ·¾¶
+  				æ³¨æ„ï¼š
+  					æ­¤ç§æ–¹å¼åªèƒ½è·å–é¡¹ç›®æ ¹ç›®å½•ä¸‹çš„èµ„æºæµå¯¹è±¡ï¼Œclassæ–‡ä»¶çš„æµå¯¹è±¡éœ€è¦ä½¿ç”¨ç±»åŠ è½½å™¨è·å–ã€‚
+  					pathå‚æ•°ä¸ºé¡¹ç›®æ ¹ç›®å½•ä¸­çš„è·¯å¾„
  * 
  * 
  * @author MyPC
@@ -64,26 +64,26 @@ public class ServletContextServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		//»ñÈ¡ServletContext¶ÔÏó
-			//µÚÒ»ÖÖ·½Ê½£º
+		//è·å–ServletContextå¯¹è±¡
+			//ç¬¬ä¸€ç§æ–¹å¼ï¼š
 			ServletContext sc=this.getServletContext();
-			//µÚ¶şÖÖ·½Ê½£º
+			//ç¬¬äºŒç§æ–¹å¼ï¼š
 			ServletContext sc2=this.getServletConfig().getServletContext();
-			//µÚÈıÖÖ·½Ê½£º
+			//ç¬¬ä¸‰ç§æ–¹å¼ï¼š
 			ServletContext sc3=req.getSession().getServletContext();
 			System.out.println(sc==sc2);
 			System.out.println(sc==sc3);
-		//Ê¹ÓÃServletContext¶ÔÏóÍê³ÉÊı¾İ¹²Ïí
-			//Êı¾İ´æ´¢
-			sc.setAttribute("str", "ServletContext¶ÔÏóÑ§Ï°");
-		//»ñÈ¡ÏîÄ¿web.xmlµÄÈ«¾ÖÅäÖÃÊı¾İ
+		//ä½¿ç”¨ServletContextå¯¹è±¡å®Œæˆæ•°æ®å…±äº«
+			//æ•°æ®å­˜å‚¨
+			sc.setAttribute("str", "ServletContextå¯¹è±¡å­¦ä¹ ");
+		//è·å–é¡¹ç›®web.xmlçš„å…¨å±€é…ç½®æ•°æ®
 			String str = sc.getInitParameter("name2");
-			System.out.println("È«¾ÖÅäÖÃ²ÎÊı£º"+str);
-		//»ñÈ¡ÏîÄ¿¸ùÄ¿Â¼ÏÂµÄ×ÊÔ´µÄ¾ø¶ÔÂ·¾¶
+			System.out.println("å…¨å±€é…ç½®å‚æ•°ï¼š"+str);
+		//è·å–é¡¹ç›®æ ¹ç›®å½•ä¸‹çš„èµ„æºçš„ç»å¯¹è·¯å¾„
 			//String path="D:\\apache-tomcat-7.0.56\\webapps\\sc\\doc\\1.txt";
 			String path=sc.getRealPath("/doc/1.txt");
 			System.out.println(path);
-		//»ñÈ¡ÏîÄ¿¸ùÄ¿Â¼ÏÂ×ÊÔ´µÄÁ÷¶ÔÏó
+		//è·å–é¡¹ç›®æ ¹ç›®å½•ä¸‹èµ„æºçš„æµå¯¹è±¡
 			InputStream is = sc.getResourceAsStream("/doc/1.txt");
 	
 	}

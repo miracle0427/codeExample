@@ -12,9 +12,9 @@ public class ServletContextServlet2 extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		//创建ServletContext对象
+		//鍒涘缓ServletContext瀵硅薄
 			ServletContext sc=this.getServletContext();
-		//获取数据
+		//鑾峰彇鏁版嵁
 			System.out.println("ServletContextServlet2.service()"+sc.getAttribute("str"));
 	}
 }

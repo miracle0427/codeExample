@@ -8,54 +8,54 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 /**
- * session����ѧϰ:
- * 		���⣺
- * 			һ���û��Ĳ�ͬ�����������ݹ�����ô�죿
- * 		�����
- * 			ʹ��session����
- * 		ԭ����
- * 			�û���һ�η��ʷ��������������ᴴ��һ��session��������û�������
- * 			��session�����JSESSIONIDʹ��Cookie�����洢��������У���֤
- * 			�û������������ܹ���ȡ��ͬһ��session����Ҳ��֤�˲�ͬ�����ܹ���ȡ��
- * 			���������ݡ�
- * 		�ص㣺
- * 			�洢�ڷ�������
- * 			���������д���
- * 			����Cookie����
- * 			һ�λỰ
- * 			Ĭ�ϴ洢ʱ����30����
- *		���ã�
- *			�����һ���û���ͬ�����������ݹ�������
- *		ʹ�ã�
- *			����session����/��ȡsession����
+ * session技术学习:
+ * 		问题：
+ * 			一个用户的不同请求处理的数据共享怎么办？
+ * 		解决：
+ * 			使用session技术
+ * 		原理：
+ * 			用户第一次访问服务器，服务器会创建一个session对象给此用户，并将
+ * 			该session对象的JSESSIONID使用Cookie技术存储到浏览器中，保证
+ * 			用户的其他请求能够获取到同一个session对象，也保证了不同请求能够获取到
+ * 			共享的数据。
+ * 		特点：
+ * 			存储在服务器端
+ * 			服务器进行创建
+ * 			依赖Cookie技术
+ * 			一次会话
+ * 			默认存储时间是30分钟
+ *		作用：
+ *			解决了一个用户不同请求处理的数据共享问题
+ *		使用：
+ *			创建session对象/获取session对象
 				HttpSession hs=req.getSession();
-				���������ӵ��session�ı�ʶ��Ҳ����JSESSIONID���򷵻����Ӧ��session����
-				���������û��session�ı�ʶ��Ҳ����JSESSIONID���򴴽��µ�session���󣬲�����JSESSIONID��Ϊ��cookie���ݴ洢��������ڴ���
- * 				���session������ʧЧ�ˣ�Ҳ�����´���һ��session���󣬲�����JSESSIONID�洢��������ڴ��С�
- * 			����session�洢ʱ��
+				如果请求中拥有session的标识符也就是JSESSIONID，则返回其对应的session队形
+				如果请求中没有session的标识符也就是JSESSIONID，则创建新的session对象，并将其JSESSIONID作为从cookie数据存储到浏览器内存中
+ * 				如果session对象是失效了，也会重新创建一个session对象，并将其JSESSIONID存储在浏览器内存中。
+ * 			设置session存储时间
  * 				hs.setMaxInactiveInterval(int seconds);
- * 				ע�⣺
- * 					��ָ����ʱ����session����û�б�ʹ�������٣����ʹ���������¼�ʱ��
- * 			����sessionǿ��ʧЧ
+ * 				注意：
+ * 					在指定的时间内session对象没有被使用则销毁，如果使用了则重新计时。
+ * 			设置session强制失效
  * 				hs.invalidate();
- * 			�洢�ͻ�ȡ����
- * 				�洢��hs.setAttribute(String name,Object value);
- * 				��ȡ��hs.getAttribute(String name) ���ص���������ΪObject
- * 				ע�⣺
- * 					�洢�Ķ�����ȡ���Ķ��������ڲ�ͬ�������У����Ǵ洢Ҫ����ȡ��ִ�С�
- * 			ʹ��ʱ��:
- * 				һ���û��ڵ�½web��Ŀʱ�Ὣ�û��ĸ�����Ϣ�洢��Sesion�У������û�����������ʹ�á�
- * 			�ܽ᣺
- * 				session�����һ���û��Ĳ�ͬ��������ݹ������⣬ֻҪ��JSESSIONID��ʧЧ��session����ʧЧ������¡�
- * 				�û������������ڴ���ʱ���ܻ�ȡ��ͬһ��session����
- * 			������
- * 				һ�λỰ
- * 				��JSESSIONID��SESSION����ʧЧ�������Ϊ������Ŀ�ڡ�
- * 			sessionʧЧ������
- * 				���û������е�JSESSIONID�ͺ�̨��ȡ����SESSION�����JSESSIONID���бȶԣ����һ��
- * 				��sessionû��ʧЧ�������һ����֤��sessionʧЧ�ˡ��ض��򵽵�¼ҳ�棬���û����µ�¼��
- * 		ע�⣺
- * 			JSESSIONID�洢����Cookie����ʱ�洢�ռ��У�������رռ�ʧЧ��
+ * 			存储和获取数据
+ * 				存储：hs.setAttribute(String name,Object value);
+ * 				获取：hs.getAttribute(String name) 返回的数据类型为Object
+ * 				注意：
+ * 					存储的动作和取出的动作发生在不同的请求中，但是存储要先于取出执行。
+ * 			使用时机:
+ * 				一般用户在登陆web项目时会将用户的个人信息存储到Sesion中，供该用户的其他请求使用。
+ * 			总结：
+ * 				session解决了一个用户的不同请求的数据共享问题，只要在JSESSIONID不失效和session对象不失效的情况下。
+ * 				用户的任意请求在处理时都能获取到同一个session对象。
+ * 			作用域：
+ * 				一次会话
+ * 				在JSESSIONID和SESSION对象不失效的情况下为整个项目内。
+ * 			session失效处理：
+ * 				将用户请求中的JSESSIONID和后台获取到的SESSION对象的JSESSIONID进行比对，如果一致
+ * 				则session没有失效，如果不一致则证明session失效了。重定向到登录页面，让用户重新登录。
+ * 		注意：
+ * 			JSESSIONID存储在了Cookie的临时存储空间中，浏览器关闭即失效。
  * 
  * @author MyPC
  *
@@ -64,26 +64,26 @@ public class SessionServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		//������������ʽ
+		//设置请求编码格式
 		req.setCharacterEncoding("utf-8");
-		//������Ӧ�����ʽ
+		//设置响应编码格式
 		resp.setContentType("text/html;charset=utf-8");
-		//��ȡ������Ϣ
-			String name="����";
-		//����������Ϣ
-			//����session����
+		//获取请求信息
+			String name="张三";
+		//处理请求信息
+			//创建session对象
 			HttpSession hs=req.getSession();
-			//����session�Ĵ洢ʱ��
+			//设置session的存储时间
 				//hs.setMaxInactiveInterval(5);
 			System.out.println(hs.getId());
-			//����sessionǿ��ʧЧ
+			//设置session强制失效
 				//hs.invalidate();
-			//�洢����
+			//存储数据
 				hs.setAttribute("name",name);
-		//��Ӧ�������
-			//ֱ����Ӧ
-			resp.getWriter().write("sessionѧϰ");
-			//����ת��
-			//�ض���
+		//响应处理结果
+			//直接响应
+			resp.getWriter().write("session学习");
+			//请求转发
+			//重定向
 	}
 }

@@ -7,26 +7,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 /**
- * Respone¶ÔÏóÑ§Ï°£º
- * 		×÷ÓÃ£º
- * 			ÓÃÀ´ÏìÓ¦Êı¾İµ½ä¯ÀÀÆ÷µÄÒ»¸ö¶ÔÏó
- * 		Ê¹ÓÃ£º
- * 			ÉèÖÃÏìÓ¦Í·
- * 				setHeader(String name,String value);//ÔÚÏìÓ¦Í·ÖĞÌí¼ÓÏìÓ¦ĞÅÏ¢£¬µ«ÊÇÍ¬¼ü»á¸²¸Ç
- * 				addHeader(String name,String value);//ÔÚÏìÓ¦Í·ÖĞÌí¼ÓÏìÓ¦ĞÅÏ¢£¬µ«ÊÇ²»»á¸²¸Ç¡£
- * 			ÉèÖÃÏìÓ¦×´Ì¬
- * 				sendError(int num,String msg);//×Ô¶¨ÒåÏìÓ¦×´Ì¬Âë¡£
- * 			ÉèÖÃÏìÓ¦ÊµÌå
- * 				resp.getWrite().write(String str);//ÏìÓ¦¾ßÌåµÄÊı¾İ¸øä¯ÀÀÆ÷
- * 		ÉèÖÃÏìÓ¦±àÂë¸ñÊ½£º
+ * Responeå¯¹è±¡å­¦ä¹ ï¼š
+ * 		ä½œç”¨ï¼š
+ * 			ç”¨æ¥å“åº”æ•°æ®åˆ°æµè§ˆå™¨çš„ä¸€ä¸ªå¯¹è±¡
+ * 		ä½¿ç”¨ï¼š
+ * 			è®¾ç½®å“åº”å¤´
+ * 				setHeader(String name,String value);//åœ¨å“åº”å¤´ä¸­æ·»åŠ å“åº”ä¿¡æ¯ï¼Œä½†æ˜¯åŒé”®ä¼šè¦†ç›–
+ * 				addHeader(String name,String value);//åœ¨å“åº”å¤´ä¸­æ·»åŠ å“åº”ä¿¡æ¯ï¼Œä½†æ˜¯ä¸ä¼šè¦†ç›–ã€‚
+ * 			è®¾ç½®å“åº”çŠ¶æ€
+ * 				sendError(int num,String msg);//è‡ªå®šä¹‰å“åº”çŠ¶æ€ç ã€‚
+ * 			è®¾ç½®å“åº”å®ä½“
+ * 				resp.getWrite().write(String str);//å“åº”å…·ä½“çš„æ•°æ®ç»™æµè§ˆå™¨
+ * 		è®¾ç½®å“åº”ç¼–ç æ ¼å¼ï¼š
  * 				resp.setContentType("text/html;charset=utf-8");
- * 		×Ü½á£º
- * 			serviceÇëÇó´¦Àí´úÂëÁ÷³Ì£º
- * 				ÉèÖÃÏìÓ¦±àÂë¸ñÊ½
- * 				»ñÈ¡ÇëÇóÊı¾İ
- * 				´¦ÀíÇëÇóÊı¾İ
- * 					Êı¾İ¿â²Ù×÷£¨MVCË¼Ïë£©	
- * 				ÏìÓ¦´¦Àí½á¹û
+ * 		æ€»ç»“ï¼š
+ * 			serviceè¯·æ±‚å¤„ç†ä»£ç æµç¨‹ï¼š
+ * 				è®¾ç½®å“åº”ç¼–ç æ ¼å¼
+ * 				è·å–è¯·æ±‚æ•°æ®
+ * 				å¤„ç†è¯·æ±‚æ•°æ®
+ * 					æ•°æ®åº“æ“ä½œï¼ˆMVCæ€æƒ³ï¼‰	
+ * 				å“åº”å¤„ç†ç»“æœ
  * @author MyPC
  *
  */
@@ -36,27 +36,27 @@ public class ResponseServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-			//»ñÈ¡ÇëÇóĞÅÏ¢
-				//»ñÈ¡ÇëÇóÍ·
-				//»ñÈ¡ÇëÇóĞĞ
-				//»ñÈ¡ÓÃ»§Êı¾İ
-			//´¦ÀíÇëÇó
+			//è·å–è¯·æ±‚ä¿¡æ¯
+				//è·å–è¯·æ±‚å¤´
+				//è·å–è¯·æ±‚è¡Œ
+				//è·å–ç”¨æˆ·æ•°æ®
+			//å¤„ç†è¯·æ±‚
 				
-			//ÏìÓ¦´¦Àí½á¹û
-				//ÉèÖÃÏìÓ¦Í·
+			//å“åº”å¤„ç†ç»“æœ
+				//è®¾ç½®å“åº”å¤´
 				resp.setHeader("mouse", "two fly birds");
 				resp.setHeader("mouse", "bjsxt");
 				resp.addHeader("key", "thinkpad");
 				resp.addHeader("key", "wollo");
-				//ÉèÖÃÏìÓ¦±àÂë¸ñÊ½
+				//è®¾ç½®å“åº”ç¼–ç æ ¼å¼
 					//resp.setHeader("content-type", "text/html;charset=utf-8");
 					//resp.setContentType("text/plain;charset=utf-8");
 					//resp.setContentType("text/xml;charset=utf-8");
 					resp.setContentType("text/html;charset=utf-8");
-				//ÉèÖÃÏìÓ¦×´Ì¬Âğ
+				//è®¾ç½®å“åº”çŠ¶æ€å—
 					//resp.sendError(404, "this Method is not supported");
-				//ÉèÖÃÏìÓ¦ÊµÌå
-					resp.getWriter().write("<b>½ñÌìÌìÆøÕæºÃ£¬ÊÊºÏÑ§Ï°</b>");
+				//è®¾ç½®å“åº”å®ä½“
+					resp.getWriter().write("<b>ä»Šå¤©å¤©æ°”çœŸå¥½ï¼Œé€‚åˆå­¦ä¹ </b>");
 				
 				
 	}

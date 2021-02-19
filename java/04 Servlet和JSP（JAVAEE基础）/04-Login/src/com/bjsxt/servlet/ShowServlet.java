@@ -14,31 +14,31 @@ public class ShowServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		//ÉèÖÃÇëÇó±àÂë¸ñÊ½
+		//è®¾ç½®è¯·æ±‚ç¼–ç æ ¼å¼
 			req.setCharacterEncoding("utf-8");
-		//ÉèÖÃÏìÓ¦±àÂë¸ñÊ½
+		//è®¾ç½®å“åº”ç¼–ç æ ¼å¼
 			resp.setContentType("text/html;charset=utf-8");
-		//»ñÈ¡ÇëÇóĞÅÏ¢
+		//è·å–è¯·æ±‚ä¿¡æ¯
 			HttpSession hs=req.getSession();
 			if(hs.getAttribute("user")==null){
-				//ÖØ¶¨Ïò
+				//é‡å®šå‘
 				resp.sendRedirect("/login/ck");
 				return;
 			}
 			User u=(User) hs.getAttribute("user");
-		//´¦ÀíÇëÇóĞÅÏ¢
-		//ÏìÓ¦´¦Àí½á¹û
+		//å¤„ç†è¯·æ±‚ä¿¡æ¯
+		//å“åº”å¤„ç†ç»“æœ
 			resp.getWriter().write("<html>");
 			resp.getWriter().write("<head>");
 			resp.getWriter().write("</head>");
 			resp.getWriter().write("<body>");
 			resp.getWriter().write("<table border='1px'>");
 			resp.getWriter().write("<tr>");
-			resp.getWriter().write("<td>ÓÃ»§Ãû</td>");
+			resp.getWriter().write("<td>ç”¨æˆ·å</td>");
 			resp.getWriter().write("<td>"+u.getUname()+"</td>");
 			resp.getWriter().write("</tr>");
 			resp.getWriter().write("<tr>");
-			resp.getWriter().write("<td>ÃÜÂë</td>");
+			resp.getWriter().write("<td>å¯†ç </td>");
 			resp.getWriter().write("<td>"+u.getPwd()+"</td>");
 			resp.getWriter().write("</tr>");
 			resp.getWriter().write("</table>");

@@ -12,64 +12,64 @@ import com.bjsxt.pojo.User;
 import com.bjsxt.service.LoginService;
 import com.bjsxt.service.impl.LoginServiceImpl;
 /**
- * CookieĞÅÏ¢Ğ£Ñé
- * 		ÅĞ¶ÏÇëÇóÖĞÊÇ·ñĞ¯´øÕıÈ·µÄCookieĞÅÏ¢
- * 		Èç¹ûÓĞÔòĞ£ÑéCookieĞÅÏ¢ÊÇ·ñÕıÈ·
- * 			Èç¹ûĞ£ÑéÕıÈ·ÔòÖ±½ÓÏìÓ¦Ö÷Ò³Ãæ¸øÓÃ»§
- * 			Èç¹ûĞ£Ñé²»ÕıÈ·ÔòÏìÓ¦µÇÂ¼Ò³Ãæ¸øÓÃ»§
- * 		Ã»ÓĞÔòÇëÇó×ª·¢¸øµÇÂ¼Ò³Ãæ
+ * Cookieä¿¡æ¯æ ¡éªŒ
+ * 		åˆ¤æ–­è¯·æ±‚ä¸­æ˜¯å¦æºå¸¦æ­£ç¡®çš„Cookieä¿¡æ¯
+ * 		å¦‚æœæœ‰åˆ™æ ¡éªŒCookieä¿¡æ¯æ˜¯å¦æ­£ç¡®
+ * 			å¦‚æœæ ¡éªŒæ­£ç¡®åˆ™ç›´æ¥å“åº”ä¸»é¡µé¢ç»™ç”¨æˆ·
+ * 			å¦‚æœæ ¡éªŒä¸æ­£ç¡®åˆ™å“åº”ç™»å½•é¡µé¢ç»™ç”¨æˆ·
+ * 		æ²¡æœ‰åˆ™è¯·æ±‚è½¬å‘ç»™ç™»å½•é¡µé¢
  * @author MyPC
  */
 public class CookieServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		//ÉèÖÃÇëÇó±àÂë¸ñÊ½
+		//è®¾ç½®è¯·æ±‚ç¼–ç æ ¼å¼
 			req.setCharacterEncoding("utf-8");
-		//ÉèÖÃÏìÓ¦±àÂë¸ñÊ½
+		//è®¾ç½®å“åº”ç¼–ç æ ¼å¼
 			resp.setContentType("text/html;charset=utf-8");
-		//»ñÈ¡ÇëÇóĞÅÏ¢
-			//»ñÈ¡CookieĞÅÏ¢
+		//è·å–è¯·æ±‚ä¿¡æ¯
+			//è·å–Cookieä¿¡æ¯
 			Cookie[] cks=req.getCookies();
-		//´¦ÀíÇëÇóĞÅÏ¢
+		//å¤„ç†è¯·æ±‚ä¿¡æ¯
 			if(cks!=null){
-				//±éÀúCookieĞÅÏ¢
+				//éå†Cookieä¿¡æ¯
 					String uid="";
 					for(Cookie c:cks){
 						if("uid".equals(c.getName())){
 							uid=c.getValue();
 						}
 					}
-				//Ğ£ÑéUIDÊÇ·ñ´æÔÚ
+				//æ ¡éªŒUIDæ˜¯å¦å­˜åœ¨
 					if("".equals(uid)){
-						//ÇëÇó×ª·¢
+						//è¯·æ±‚è½¬å‘
 						req.getRequestDispatcher("page").forward(req, resp);
 						return;
 					}else{
-						//Ğ£ÑéUIDÓÃ»§ĞÅÏ¢
-							//»ñÈ¡ÒµÎñ²ã¶ÔÏó
+						//æ ¡éªŒUIDç”¨æˆ·ä¿¡æ¯
+							//è·å–ä¸šåŠ¡å±‚å¯¹è±¡
 							LoginService ls=new LoginServiceImpl();
 							User u=ls.checkUidService(uid);
 							if(u!=null){
-								//½«ÓÃ»§Êı¾İ´æ´¢µ½session¶ÔÏóÖĞ
+								//å°†ç”¨æˆ·æ•°æ®å­˜å‚¨åˆ°sessionå¯¹è±¡ä¸­
 								req.getSession().setAttribute("user",u);
-								//ÍøÒ³¼ÆÊıÆ÷×ÔÔö
+								//ç½‘é¡µè®¡æ•°å™¨è‡ªå¢
 									int nums=(int) this.getServletContext().getAttribute("nums");
 									nums+=1;
 									this.getServletContext().setAttribute("nums", nums);
-								//ÖØ¶¨Ïò
+								//é‡å®šå‘
 								resp.sendRedirect("/login/main");
 								return;
 							}else{
-								//ÇëÇó×ª·¢
+								//è¯·æ±‚è½¬å‘
 								req.getRequestDispatcher("page").forward(req, resp);
 								return;
 							}
 					}
 				
 			}else{
-				//ÏìÓ¦´¦Àí½á¹û
-					//ÇëÇó×ª·¢
+				//å“åº”å¤„ç†ç»“æœ
+					//è¯·æ±‚è½¬å‘
 					req.getRequestDispatcher("page").forward(req, resp);
 					return;
 			}

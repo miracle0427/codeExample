@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServlet;
 
 public class NumServlet extends HttpServlet {
 	
-	//¸²Ğ´init³õÊ¼»¯·½·¨£¬½«Êı¾İ¶ÁÈ¡µ½ServletContext¶ÔÏóÖĞ
+	//è¦†å†™initåˆå§‹åŒ–æ–¹æ³•ï¼Œå°†æ•°æ®è¯»å–åˆ°ServletContextå¯¹è±¡ä¸­
 	@Override
 	public void init() throws ServletException {
-		//»ñÈ¡ÎÄ¼şÖĞµÄ¼ÆÊıÆ÷Êı¾İ
-			//»ñÈ¡ÎÄ¼şÂ·¾¶
+		//è·å–æ–‡ä»¶ä¸­çš„è®¡æ•°å™¨æ•°æ®
+			//è·å–æ–‡ä»¶è·¯å¾„
 			String path=this.getServletContext().getRealPath("/nums/nums.txt");
-			//ÉùÃ÷Á÷¶ÔÏó
+			//å£°æ˜æµå¯¹è±¡
 			FileReader fr=null;
 			BufferedReader br=null;
 			try {
@@ -44,14 +44,14 @@ public class NumServlet extends HttpServlet {
 			}
 	}
 	
-	//¸²Ğ´Ïú»Ù·½·¨£¬´æ´¢¼ÆÊıÆ÷µ½ÎÄ¼şÖĞ
+	//è¦†å†™é”€æ¯æ–¹æ³•ï¼Œå­˜å‚¨è®¡æ•°å™¨åˆ°æ–‡ä»¶ä¸­
 	@Override
 	public void destroy() {
-		//»ñÈ¡ÍøÒ³¼ÆÊıÆ÷
+		//è·å–ç½‘é¡µè®¡æ•°å™¨
 		int nums=(int) this.getServletContext().getAttribute("nums");
-		//»ñÈ¡ÎÄ¼şÂ·¾¶
+		//è·å–æ–‡ä»¶è·¯å¾„
 		String path=this.getServletContext().getRealPath("/nums/nums.txt");
-		//ÉùÃ÷Á÷¶ÔÏó
+		//å£°æ˜æµå¯¹è±¡
 		BufferedWriter bw=null;
 		FileWriter fw=null;
 		try {

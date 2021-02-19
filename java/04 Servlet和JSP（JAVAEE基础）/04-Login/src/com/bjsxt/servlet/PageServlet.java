@@ -11,12 +11,12 @@ public class PageServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		//ÉèÖÃÏìÓ¦±àÂë¸ñÊ½
+		//è®¾ç½®å“åº”ç¼–ç æ ¼å¼
 			resp.setContentType("text/html;charset=utf-8");
-		//»ñÈ¡ÇëÇóĞÅÏ¢
-		//´¦ÀíÇëÇó
-		//ÏìÓ¦´¦Àí½á¹û
-			//»ñÈ¡request×÷ÓÃÓòÊı¾İ
+		//è·å–è¯·æ±‚ä¿¡æ¯
+		//å¤„ç†è¯·æ±‚
+		//å“åº”å¤„ç†ç»“æœ
+			//è·å–requestä½œç”¨åŸŸæ•°æ®
 				String str=(String) req.getAttribute("str")==null?"":(String) req.getAttribute("str");
 				resp.getWriter().write("<html>");
 				resp.getWriter().write("<head>");
@@ -24,9 +24,9 @@ public class PageServlet extends HttpServlet {
 				resp.getWriter().write("<body>");
 				resp.getWriter().write("<font color='red' size='20px'>"+str+"</font>");
 				resp.getWriter().write("<form action='login' method='get'>");
-				resp.getWriter().write("ÓÃ»§Ãû:<input type='text' name='uname' value=''/><br/>");
-				resp.getWriter().write("ÃÜÂë:<input type='password' name='pwd' value=''/><br/>");
-				resp.getWriter().write("<input type='submit'  value='µÇÂ¼'/><br/>");
+				resp.getWriter().write("ç”¨æˆ·å:<input type='text' name='uname' value=''/><br/>");
+				resp.getWriter().write("å¯†ç :<input type='password' name='pwd' value=''/><br/>");
+				resp.getWriter().write("<input type='submit'  value='ç™»å½•'/><br/>");
 				resp.getWriter().write("</form>");
 				resp.getWriter().write("</body>");
 				resp.getWriter().write("</html>");

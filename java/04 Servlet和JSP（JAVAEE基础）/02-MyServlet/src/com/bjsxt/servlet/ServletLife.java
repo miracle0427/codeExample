@@ -9,23 +9,23 @@ import javax.servlet.http.HttpServletResponse;
 
 
 /**
- * ServletµÄÉúÃüÖÜÆÚ£º
- * 		1¡¢´ÓµÚÒ»´Îµ÷ÓÃµ½·şÎñÆ÷¹Ø±Õ¡£
- * 		2¡¢Èç¹ûServletÔÚweb.xmlÖĞÅäÖÃÁËload-on-startup£¬ÉúÃüÖÜÆÚÎª´Ó·şÎñÆ÷Æô¶¯µ½·şÎñÆ÷¹Ø±Õ
- * ×¢Òâ£º
- * 		init·½·¨ÊÇ¶ÔServlet½øĞĞ³õÊ¼»¯µÄÒ»¸ö·½·¨£¬»áÔÚServletµÚÒ»´Î¼ÓÔØ½øĞĞ´æ´¢Ê±Ö´ĞĞ
- * 		destory·½·¨ÊÇÔÚservlet±»Ïú»ÙÊ±Ö´ĞĞ£¬Ò²¾Í·şÎñÆ÷¹Ø±ÕÊ±¡£
+ * Servletçš„ç”Ÿå‘½å‘¨æœŸï¼š
+ * 		1ã€ä»ç¬¬ä¸€æ¬¡è°ƒç”¨åˆ°æœåŠ¡å™¨å…³é—­ã€‚
+ * 		2ã€å¦‚æœServletåœ¨web.xmlä¸­é…ç½®äº†load-on-startupï¼Œç”Ÿå‘½å‘¨æœŸä¸ºä»æœåŠ¡å™¨å¯åŠ¨åˆ°æœåŠ¡å™¨å…³é—­
+ * æ³¨æ„ï¼š
+ * 		initæ–¹æ³•æ˜¯å¯¹Servletè¿›è¡Œåˆå§‹åŒ–çš„ä¸€ä¸ªæ–¹æ³•ï¼Œä¼šåœ¨Servletç¬¬ä¸€æ¬¡åŠ è½½è¿›è¡Œå­˜å‚¨æ—¶æ‰§è¡Œ
+ * 		destoryæ–¹æ³•æ˜¯åœ¨servletè¢«é”€æ¯æ—¶æ‰§è¡Œï¼Œä¹Ÿå°±æœåŠ¡å™¨å…³é—­æ—¶ã€‚
  * @author MyPC
  *
  */
 public class ServletLife extends HttpServlet {
-	//³õÊ¼»¯·½·¨£¬ÔÚservletµÚÒ»´Î¼ÓÔØÄÚÈİµÄÊ±ºò±»µ÷ÓÃ
+	//åˆå§‹åŒ–æ–¹æ³•ï¼Œåœ¨servletç¬¬ä¸€æ¬¡åŠ è½½å†…å®¹çš„æ—¶å€™è¢«è°ƒç”¨
 	@Override
 	public void init() throws ServletException {
-		System.out.println("servlet³õÊ¼»¯Íê³É");
+		System.out.println("servletåˆå§‹åŒ–å®Œæˆ");
 	}
 	
-	//service·½·¨£¬ÕæÕı´¦ÀíÇëÇóµÄ·½·¨
+	//serviceæ–¹æ³•ï¼ŒçœŸæ­£å¤„ç†è¯·æ±‚çš„æ–¹æ³•
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -34,7 +34,7 @@ public class ServletLife extends HttpServlet {
 	}
 	@Override
 	public void destroy() {
-		System.out.println("ÎÒ±»Ïú»ÙÁË...");
+		System.out.println("æˆ‘è¢«é”€æ¯äº†...");
 	}
 	
 	

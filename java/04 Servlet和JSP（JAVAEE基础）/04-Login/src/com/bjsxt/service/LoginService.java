@@ -3,8 +3,8 @@ package com.bjsxt.service;
 import com.bjsxt.pojo.User;
 
 public interface LoginService {
-	//校验用户登录信息
+	//鏍￠獙鐢ㄦ埛鐧诲綍淇℃伅
 	User checkLoginService(String uname,String pwd);
-	//校验用户Cookie信息
+	//鏍￠獙鐢ㄦ埛Cookie淇℃伅
 	User checkUidService(String uid);
 }	

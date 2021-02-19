@@ -8,24 +8,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 /**
- * CookieÑ§Ï°:
- * 		×÷ÓÃ:½â¾öÁË·¢ËÍµÄ²»Í¬ÇëÇóµÄÊı¾İ¹²ÏíÎÊÌâ
- * 		Ê¹ÓÃ:
- * 			CookieµÄ´´½¨ºÍ´æ´¢
- * 				//´´½¨Cookie¶ÔÏó
+ * Cookieå­¦ä¹ :
+ * 		ä½œç”¨:è§£å†³äº†å‘é€çš„ä¸åŒè¯·æ±‚çš„æ•°æ®å…±äº«é—®é¢˜
+ * 		ä½¿ç”¨:
+ * 			Cookieçš„åˆ›å»ºå’Œå­˜å‚¨
+ * 				//åˆ›å»ºCookieå¯¹è±¡
  * 					Cookie c=new Cookie(String name, String value);
- * 				//ÉèÖÃcookie(¿ÉÑ¡)
- * 					//ÉèÖÃÓĞĞ§ÆÚ
+ * 				//è®¾ç½®cookie(å¯é€‰)
+ * 					//è®¾ç½®æœ‰æ•ˆæœŸ
  * 					c.setMaxAge(int seconds);
- *					//ÉèÖÃÓĞĞ§Â·¾¶
+ *					//è®¾ç½®æœ‰æ•ˆè·¯å¾„
  *					c.setPath(String uri)
- *				//ÏìÓ¦CookieĞÅÏ¢¸ø¿Í»§¶Ë
+ *				//å“åº”Cookieä¿¡æ¯ç»™å®¢æˆ·ç«¯
  *					resp.addCookie(c);
- *			CookieµÄ»ñÈ¡
- *				//»ñÈ¡CookieĞÅÏ¢Êı×é
+ *			Cookieçš„è·å–
+ *				//è·å–Cookieä¿¡æ¯æ•°ç»„
  *				Cookie[] cks=req.getCookies();
- *				//±éÀúÊı×é»ñÈ¡CookieĞÅÏ¢
- *					Ê¹ÓÃforÑ­»·±éÀú¼´¿É£¬Ê¾Àı£º
+ *				//éå†æ•°ç»„è·å–Cookieä¿¡æ¯
+ *					ä½¿ç”¨forå¾ªç¯éå†å³å¯ï¼Œç¤ºä¾‹ï¼š
 	 					if(cks!=null){
 							for(Cookie c:cks){
 								String name=c.getName();
@@ -33,14 +33,14 @@ import javax.servlet.http.HttpServletResponse;
 								System.out.println(name+":"+value);
 							}
 						}
- *		×¢Òâ:
- *			Ò»¸öCookie¶ÔÏó´æ´¢Ò»ÌõÊı¾İ¡£¶àÌõÊı¾İ£¬¿ÉÒÔ¶à´´½¨¼¸¸öCookie¶ÔÏó½øĞĞ´æ´¢¡£
- *		ÌØµã:
- *			ä¯ÀÀÆ÷¶ËµÄÊı¾İ´æ´¢¼¼Êõ¡£
- *			´æ´¢µÄÊı¾İÉùÃ÷ÔÚ·şÎñÆ÷¶Ë¡£
- *			ÁÙÊ±´æ´¢:´æ´¢ÔÚä¯ÀÀÆ÷µÄÔËĞĞÄÚ´æÖĞ£¬ä¯ÀÀÆ÷¹Ø±Õ¼´Ê§Ğ§¡£
- *			¶¨Ê±´æ´¢:ÉèÖÃÁËCookieµÄÓĞĞ§ÆÚ£¬´æ´¢ÔÚ¿Í»§¶ËµÄÓ²ÅÌÖĞ£¬ÔÚÓĞĞ§ÆÚÄÚ·ûºÏÂ·¾¶ÒªÇóµÄÇëÇó¶¼»á¸½´ø¸ÃĞÅÏ¢¡£
- *			Ä¬ÈÏcookieĞÅÏ¢´æ´¢ºÃÖ®ºó£¬Ã¿´ÎÇëÇó¶¼»á¸½´ø£¬³ı·ÇÉèÖÃÓĞĞ§Â·¾¶
+ *		æ³¨æ„:
+ *			ä¸€ä¸ªCookieå¯¹è±¡å­˜å‚¨ä¸€æ¡æ•°æ®ã€‚å¤šæ¡æ•°æ®ï¼Œå¯ä»¥å¤šåˆ›å»ºå‡ ä¸ªCookieå¯¹è±¡è¿›è¡Œå­˜å‚¨ã€‚
+ *		ç‰¹ç‚¹:
+ *			æµè§ˆå™¨ç«¯çš„æ•°æ®å­˜å‚¨æŠ€æœ¯ã€‚
+ *			å­˜å‚¨çš„æ•°æ®å£°æ˜åœ¨æœåŠ¡å™¨ç«¯ã€‚
+ *			ä¸´æ—¶å­˜å‚¨:å­˜å‚¨åœ¨æµè§ˆå™¨çš„è¿è¡Œå†…å­˜ä¸­ï¼Œæµè§ˆå™¨å…³é—­å³å¤±æ•ˆã€‚
+ *			å®šæ—¶å­˜å‚¨:è®¾ç½®äº†Cookieçš„æœ‰æ•ˆæœŸï¼Œå­˜å‚¨åœ¨å®¢æˆ·ç«¯çš„ç¡¬ç›˜ä¸­ï¼Œåœ¨æœ‰æ•ˆæœŸå†…ç¬¦åˆè·¯å¾„è¦æ±‚çš„è¯·æ±‚éƒ½ä¼šé™„å¸¦è¯¥ä¿¡æ¯ã€‚
+ *			é»˜è®¤cookieä¿¡æ¯å­˜å‚¨å¥½ä¹‹åï¼Œæ¯æ¬¡è¯·æ±‚éƒ½ä¼šé™„å¸¦ï¼Œé™¤éè®¾ç½®æœ‰æ•ˆè·¯å¾„
  * @author MyPC
  *
  */
@@ -48,29 +48,29 @@ public class CookieServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		//ÉèÖÃÇëÇó±àÂë¸ñÊ½
+		//è®¾ç½®è¯·æ±‚ç¼–ç æ ¼å¼
 		req.setCharacterEncoding("utf-8");
-		//ÉèÖÃÏìÓ¦±àÂë¸ñÊ½
+		//è®¾ç½®å“åº”ç¼–ç æ ¼å¼
 		resp.setContentType("text/html;charset=utf-8");
-		//»ñÈ¡ÇëÇóĞÅÏ¢
+		//è·å–è¯·æ±‚ä¿¡æ¯
 		
-		//´¦ÀíÇëÇóĞÅÏ¢
-		//ÏìÓ¦´¦Àí½á¹û
-			//Ê¹ÓÃCookie½øĞĞä¯ÀÀÆ÷¶ËµÄÊı¾İ´æ´¢
-				//´´½¨Cookie¶ÔÏó
+		//å¤„ç†è¯·æ±‚ä¿¡æ¯
+		//å“åº”å¤„ç†ç»“æœ
+			//ä½¿ç”¨Cookieè¿›è¡Œæµè§ˆå™¨ç«¯çš„æ•°æ®å­˜å‚¨
+				//åˆ›å»ºCookieå¯¹è±¡
 				Cookie c=new Cookie("mouse", "thinkpad");
 				Cookie c2=new Cookie("key", "bjsxt");
-				//ÉèÖÃCookie
-					//ÉèÖÃCookieµÄÓĞĞ§ÆÚ
+				//è®¾ç½®Cookie
+					//è®¾ç½®Cookieçš„æœ‰æ•ˆæœŸ
 					c2.setMaxAge(3*24*3600);
-					//ÉèÖÃÓĞĞ§Â·¾¶
+					//è®¾ç½®æœ‰æ•ˆè·¯å¾„
 					c2.setPath("/cookie/gc");
-				//ÏìÓ¦CookieĞÅÏ¢
+				//å“åº”Cookieä¿¡æ¯
 				resp.addCookie(c);
 				resp.addCookie(c2);
-			//Ö±½ÓÏìÓ¦
-				resp.getWriter().write("CookieÑ§Ï°");
-			//ÇëÇó×ª·¢
-			//ÖØ¶¨Ïò
+			//ç›´æ¥å“åº”
+				resp.getWriter().write("Cookieå­¦ä¹ ");
+			//è¯·æ±‚è½¬å‘
+			//é‡å®šå‘
 	}
 }

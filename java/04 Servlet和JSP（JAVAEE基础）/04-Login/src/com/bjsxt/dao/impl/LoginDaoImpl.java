@@ -13,34 +13,34 @@ public class LoginDaoImpl implements LoginDao{
 
 	@Override
 	public User checkLoginDao(String uname, String pwd) {
-		//ÉùÃ÷Jdbc¶ÔÏó
+		//å£°æ˜Jdbcå¯¹è±¡
 		Connection conn=null;
 		PreparedStatement ps=null;
 		ResultSet rs=null;
-		//ÉùÃ÷Êı¾İ´æ´¢¶ÔÏó
+		//å£°æ˜æ•°æ®å­˜å‚¨å¯¹è±¡
 		User u=null;
 		try {
-			//¼ÓÔØÇı¶¯
+			//åŠ è½½é©±åŠ¨
 			Class.forName("com.mysql.jdbc.Driver");
-			//»ñÈ¡Á¬½Ó¶ÔÏó
+			//è·å–è¿æ¥å¯¹è±¡
 			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/407","root","1234");
-			//´´½¨SqlÃüÁî
+			//åˆ›å»ºSqlå‘½ä»¤
 			String sql="select * from t_user where uname=? and pwd=?";
-			//´´½¨SqlÃüÁî¶ÔÏó
+			//åˆ›å»ºSqlå‘½ä»¤å¯¹è±¡
 			ps=conn.prepareStatement(sql);
-			//¸øÕ¼Î»·û¸³Öµ
+			//ç»™å ä½ç¬¦èµ‹å€¼
 			ps.setString(1, uname);
 			ps.setString(2, pwd);
-			//Ö´ĞĞ
+			//æ‰§è¡Œ
 			rs=ps.executeQuery();
-			//±éÀúÖ´ĞĞ½á¹û
+			//éå†æ‰§è¡Œç»“æœ
 			while(rs.next()){
 				u=new User();
 				u.setUid(rs.getInt("uid"));
 				u.setUname(rs.getString("uname"));
 				u.setPwd(rs.getString("pwd"));
 			}
-			//¹Ø±Õ×ÊÔ´
+			//å…³é—­èµ„æº
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
@@ -63,39 +63,39 @@ public class LoginDaoImpl implements LoginDao{
 				e.printStackTrace();
 			}
 		}
-		//·µ»Ø
+		//è¿”å›
 		return u;
 	}
-	//¸ù¾İUID»ñÈ¡ÓÃ»§ĞÅÏ¢
+	//æ ¹æ®UIDè·å–ç”¨æˆ·ä¿¡æ¯
 	@Override
 	public User checkUidDao(String uid) {
-			//ÉùÃ÷Jdbc¶ÔÏó
+			//å£°æ˜Jdbcå¯¹è±¡
 				Connection conn=null;
 				PreparedStatement ps=null;
 				ResultSet rs=null;
-				//ÉùÃ÷Êı¾İ´æ´¢¶ÔÏó
+				//å£°æ˜æ•°æ®å­˜å‚¨å¯¹è±¡
 				User u=null;
 				try {
-					//¼ÓÔØÇı¶¯
+					//åŠ è½½é©±åŠ¨
 					Class.forName("com.mysql.jdbc.Driver");
-					//»ñÈ¡Á¬½Ó¶ÔÏó
+					//è·å–è¿æ¥å¯¹è±¡
 					conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/407","root","1234");
-					//´´½¨SqlÃüÁî
+					//åˆ›å»ºSqlå‘½ä»¤
 					String sql="select * from t_user where uid=?";
-					//´´½¨SqlÃüÁî¶ÔÏó
+					//åˆ›å»ºSqlå‘½ä»¤å¯¹è±¡
 					ps=conn.prepareStatement(sql);
-					//¸øÕ¼Î»·û¸³Öµ
+					//ç»™å ä½ç¬¦èµ‹å€¼
 					ps.setString(1, uid);
-					//Ö´ĞĞ
+					//æ‰§è¡Œ
 					rs=ps.executeQuery();
-					//±éÀúÖ´ĞĞ½á¹û
+					//éå†æ‰§è¡Œç»“æœ
 					while(rs.next()){
 						u=new User();
 						u.setUid(rs.getInt("uid"));
 						u.setUname(rs.getString("uname"));
 						u.setPwd(rs.getString("pwd"));
 					}
-					//¹Ø±Õ×ÊÔ´
+					//å…³é—­èµ„æº
 				} catch (Exception e) {
 					e.printStackTrace();
 				}finally{
@@ -118,7 +118,7 @@ public class LoginDaoImpl implements LoginDao{
 						e.printStackTrace();
 					}
 				}
-				//·µ»Ø
+				//è¿”å›
 				return u;
 	}
 		

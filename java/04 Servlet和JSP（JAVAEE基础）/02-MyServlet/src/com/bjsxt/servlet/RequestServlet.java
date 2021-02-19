@@ -8,26 +8,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 /**
- * request¶ÔÏóÑ§Ï°£º
- * 		×÷ÓÃ£ºrequest¶ÔÏóÖĞ·â´æÁËµ±Ç°ÇëÇóµÄËùÓĞÇëÇóĞÅÏ¢
- * 		Ê¹ÓÃ£º
- * 			»ñÈ¡ÇëÇóÍ·Êı¾İ
- * 					req.getMethod();//»ñÈ¡ÇëÇó·½Ê½
- * 					req.getRequestURL();//»ñÈ¡ÇëÇóURLĞÅÏ¢
- * 					req.getRequestURI();//»ñÈ¡ÇëÇóURIĞÅÏ¢
- * 					req.getScheme();//»ñÈ¡Ğ­Òé
- * 			»ñÈ¡ÇëÇóĞĞÊı¾İ
- * 					req.getHeader("¼üÃû");//·µ»ØÖ¸¶¨µÄÇëÇóÍ·ĞÅÏ¢
- * 					req.getHeaderNames();//·µ»ØÇëÇóÍ·µÄ¼üÃûµÄÃ¶¾Ù¼¯ºÏ
- * 			»ñÈ¡ÓÃ»§Êı¾İ
- * 					req.getParameter("¼üÃû");//·µ»ØÖ¸¶¨µÄÓÃ»§Êı¾İ
- * 					req.getParameterValues("¼üÃû");//·µ»ØÍ¬¼ü²»Í¬ÖµµÄÇëÇóÊı¾İ(¶àÑ¡)£¬·µ»ØµÄÊı×é¡£
- * 					req.getParameterNames()//·µ»ØËùÓĞÓÃ»§ÇëÇóÊı¾İµÄÃ¶¾Ù¼¯ºÏ
- * 			×¢Òâ£º
- * 				Èç¹ûÒª»ñÈ¡µÄÇëÇóÊı¾İ²»´æÔÚ£¬²»»á±¨´í£¬·µ»Ønull¡£
+ * requestå¯¹è±¡å­¦ä¹ ï¼š
+ * 		ä½œç”¨ï¼šrequestå¯¹è±¡ä¸­å°å­˜äº†å½“å‰è¯·æ±‚çš„æ‰€æœ‰è¯·æ±‚ä¿¡æ¯
+ * 		ä½¿ç”¨ï¼š
+ * 			è·å–è¯·æ±‚å¤´æ•°æ®
+ * 					req.getMethod();//è·å–è¯·æ±‚æ–¹å¼
+ * 					req.getRequestURL();//è·å–è¯·æ±‚URLä¿¡æ¯
+ * 					req.getRequestURI();//è·å–è¯·æ±‚URIä¿¡æ¯
+ * 					req.getScheme();//è·å–åè®®
+ * 			è·å–è¯·æ±‚è¡Œæ•°æ®
+ * 					req.getHeader("é”®å");//è¿”å›æŒ‡å®šçš„è¯·æ±‚å¤´ä¿¡æ¯
+ * 					req.getHeaderNames();//è¿”å›è¯·æ±‚å¤´çš„é”®åçš„æšä¸¾é›†åˆ
+ * 			è·å–ç”¨æˆ·æ•°æ®
+ * 					req.getParameter("é”®å");//è¿”å›æŒ‡å®šçš„ç”¨æˆ·æ•°æ®
+ * 					req.getParameterValues("é”®å");//è¿”å›åŒé”®ä¸åŒå€¼çš„è¯·æ±‚æ•°æ®(å¤šé€‰)ï¼Œè¿”å›çš„æ•°ç»„ã€‚
+ * 					req.getParameterNames()//è¿”å›æ‰€æœ‰ç”¨æˆ·è¯·æ±‚æ•°æ®çš„æšä¸¾é›†åˆ
+ * 			æ³¨æ„ï¼š
+ * 				å¦‚æœè¦è·å–çš„è¯·æ±‚æ•°æ®ä¸å­˜åœ¨ï¼Œä¸ä¼šæŠ¥é”™ï¼Œè¿”å›nullã€‚
  * 
- * 		×¢Òâ£º
- * 			request¶ÔÏóÓÉtomcat·şÎñÆ÷´´½¨£¬²¢×÷ÎªÊµ²Î´«µİ¸ø´¦ÀíÇëÇóµÄservletµÄservice·½·¨¡£
+ * 		æ³¨æ„ï¼š
+ * 			requestå¯¹è±¡ç”±tomcatæœåŠ¡å™¨åˆ›å»ºï¼Œå¹¶ä½œä¸ºå®å‚ä¼ é€’ç»™å¤„ç†è¯·æ±‚çš„servletçš„serviceæ–¹æ³•ã€‚
  * @author MyPC
  *
  */
@@ -35,31 +35,31 @@ public class RequestServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		//»ñÈ¡ÇëÇóÍ·Êı¾İ
-				//»ñÈ¡ÇëÇó·½Ê½
+		//è·å–è¯·æ±‚å¤´æ•°æ®
+				//è·å–è¯·æ±‚æ–¹å¼
 					String method = req.getMethod();
 					System.out.println(method);
-				//»ñÈ¡ÇëÇóURL
+				//è·å–è¯·æ±‚URL
 					StringBuffer url=req.getRequestURL();
 					System.out.println(url);
-					//»ñÈ¡URI
+					//è·å–URI
 					String uri=req.getRequestURI();
 					System.out.println(uri);
-				//»ñÈ¡Ğ­Òé
+				//è·å–åè®®
 					String h=req.getScheme();
 					System.out.println(h);
-		//»ñÈ¡ÇëÇóĞĞÊı¾İ
-					//»ñÈ¡Ö¸¶¨µÄÇëÇóĞĞĞÅÏ¢
+		//è·å–è¯·æ±‚è¡Œæ•°æ®
+					//è·å–æŒ‡å®šçš„è¯·æ±‚è¡Œä¿¡æ¯
 					String value=req.getHeader("aaa");
 					System.out.println(value);
-					//»ñÈ¡ËùÓĞµÄÇëÇóĞĞµÄ¼üµÄÃ¶¾Ù
+					//è·å–æ‰€æœ‰çš„è¯·æ±‚è¡Œçš„é”®çš„æšä¸¾
 					Enumeration e = req.getHeaderNames();
 					while(e.hasMoreElements()){
 						String name=(String) e.nextElement();
 						String value2=req.getHeader(name);
 						System.out.println(name+":"+value2);
 					}
-		//»ñÈ¡ÓÃ»§Êı¾İ
+		//è·å–ç”¨æˆ·æ•°æ®
 					String name=req.getParameter("uname");
 					String pwd=req.getParameter("pwd");
 					System.out.println(name+":"+pwd);
@@ -70,6 +70,6 @@ public class RequestServlet extends HttpServlet {
 							System.out.println(fav);
 						}
 					}
-					//»ñÈ¡ËùÓĞµÄÓÃ»§ÇëÇóÊı¾İµÄ¼üµÄÃ¶¾Ù¼¯ºÏ---req.getParameterNames()	
+					//è·å–æ‰€æœ‰çš„ç”¨æˆ·è¯·æ±‚æ•°æ®çš„é”®çš„æšä¸¾é›†åˆ---req.getParameterNames()	
 	}
 }

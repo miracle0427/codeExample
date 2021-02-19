@@ -13,26 +13,26 @@ public class MainServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		//ÉèÖÃÇëÇó±àÂë¸ñÊ½
+		//è®¾ç½®è¯·æ±‚ç¼–ç æ ¼å¼
 			req.setCharacterEncoding("utf-8");
-		//ÉèÖÃÏìÓ¦±àÂë¸ñÊ½
+		//è®¾ç½®å“åº”ç¼–ç æ ¼å¼
 			resp.setContentType("text/html;charset=utf-8");
-		//»ñÈ¡ÇëÇóĞÅÏ¢
-			//»ñÈ¡sessionÖĞµÄÊı¾İ
+		//è·å–è¯·æ±‚ä¿¡æ¯
+			//è·å–sessionä¸­çš„æ•°æ®
 			User u=(User) req.getSession().getAttribute("user");
-			//»ñÈ¡ÍøÒ³ä¯ÀÀ´ÎÊı
+			//è·å–ç½‘é¡µæµè§ˆæ¬¡æ•°
 			int nums=(int) this.getServletContext().getAttribute("nums");
-		//´¦ÀíÇëÇóĞÅÏ¢
-		//ÏìÓ¦´¦Àí½á¹û
+		//å¤„ç†è¯·æ±‚ä¿¡æ¯
+		//å“åº”å¤„ç†ç»“æœ
 			resp.getWriter().write("<html>");
 			resp.getWriter().write("<head>");
 			resp.getWriter().write("</head>");
 			resp.getWriter().write("<body>");
-			resp.getWriter().write("<h3>»¶Ó­"+u.getUname()+"·ÃÎÊÉĞÑ§ÌÃ¹ÜÀíÏµÍ³</h3>");	
-			resp.getWriter().write("µ±Ç°ÍøÒ³ä¯ÀÀ´ÎÊıÎª:"+nums);
+			resp.getWriter().write("<h3>æ¬¢è¿"+u.getUname()+"è®¿é—®å°šå­¦å ‚ç®¡ç†ç³»ç»Ÿ</h3>");	
+			resp.getWriter().write("å½“å‰ç½‘é¡µæµè§ˆæ¬¡æ•°ä¸º:"+nums);
 			resp.getWriter().write("<hr>");
 			resp.getWriter().write("<form action='show' method='get'>");
-			resp.getWriter().write("<input type='submit' value='²é¿´¸öÈËĞÅÏ¢'>");
+			resp.getWriter().write("<input type='submit' value='æŸ¥çœ‹ä¸ªäººä¿¡æ¯'>");
 			resp.getWriter().write("</form>");
 			resp.getWriter().write("</body>");
 			resp.getWriter().write("</html>");

@@ -12,12 +12,12 @@ public class GetCookieServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		//ÉèÖÃÇëÇó±àÂë¸ñÊ½
+		//è®¾ç½®è¯·æ±‚ç¼–ç æ ¼å¼
 			req.setCharacterEncoding("utf-8");
-		//ÉèÖÃÏìÓ¦±àÂë¸ñÊ½
+		//è®¾ç½®å“åº”ç¼–ç æ ¼å¼
 			resp.setContentType("text/html;charset=utf-8");
-		//»ñÈ¡ÇëÇóĞÅÏ¢
-			//»ñÈ¡CookieĞÅÏ¢
+		//è·å–è¯·æ±‚ä¿¡æ¯
+			//è·å–Cookieä¿¡æ¯
 				Cookie[] cks=req.getCookies();
 				if(cks!=null){
 					for(Cookie c:cks){
@@ -27,11 +27,11 @@ public class GetCookieServlet extends HttpServlet {
 					}
 				}
 				
-			//»ñÈ¡ÓÃ»§ĞÅÏ¢
-		//´¦ÀíÇëÇóĞÅÏ¢
-		//ÏìÓ¦´¦Àí½á¹û
-			//Ö±½ÓÏìÓ¦
-			//ÇëÇó×ª·¢
-			//ÖØ¶¨Ïò
+			//è·å–ç”¨æˆ·ä¿¡æ¯
+		//å¤„ç†è¯·æ±‚ä¿¡æ¯
+		//å“åº”å¤„ç†ç»“æœ
+			//ç›´æ¥å“åº”
+			//è¯·æ±‚è½¬å‘
+			//é‡å®šå‘
 	}
 }
