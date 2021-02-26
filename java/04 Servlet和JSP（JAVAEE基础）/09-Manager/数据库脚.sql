@@ -1,4 +1,4 @@
-##´´½¨ÓÃ»§±í
+##åˆ›å»ºç”¨æˆ·è¡¨
 create table t_user(
 	uid int(10) not null auto_increment,
 	uname varchar(100) not null,
@@ -8,7 +8,7 @@ create table t_user(
 	birth date,
 	primary key(uid)
 )
-##Ìí¼Ó²âÊÔÊı¾İ
-insert into t_user values(default,'ÕÅÈı','123',1,18,'2000-10-10');
-insert into t_user values(default,'ÀîËÄ','456',1,18,'2000-10-10');
+##æ·»åŠ æµ‹è¯•æ•°æ®
+insert into t_user values(default,'å¼ ä¸‰','123',1,18,'2000-10-10');
+insert into t_user values(default,'æå››','456',1,18,'2000-10-10');
 select * from t_user
